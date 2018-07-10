@@ -25,11 +25,27 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 
+// Player constructor coded with the help of this walkthrough:
+// https://matthewcranford.com/arcade-game-walkthrough-part-4-heros-first-steps/
+let Player = class {
+    constructor() {
+        // Character img
+        this.sprite = 'images/char-boy.png';
+        // Define how far the player can move side to side
+        this.side = 101;
+        // Define how far the player can move up or down
+        this.upDown = 83;
+        // Set the starting position
+        this.init_X = this.side * 2;
+        this.init_Y = (this.upDown * 5) - 20;
+    }
+    
+};
+
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-
 
 
 // This listens for key presses and sends the keys to your
