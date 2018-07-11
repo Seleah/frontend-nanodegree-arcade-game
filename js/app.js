@@ -91,7 +91,9 @@ let Player = class {
         this.render(x, y);
     }
     
-    
+    render(x, y) {
+        ctx.drawImage(this.sprite, this.x, this.y);
+    }
     
 };
 
