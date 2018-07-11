@@ -69,7 +69,7 @@ let Player = class {
                 break;
         }
         
-        // update(this.x, this.y);
+        this.update(this.x, this.y);
         
     }
     
@@ -88,11 +88,10 @@ let Player = class {
             return;
         }
         
-        // render(x, y);
+        this.render(x, y);
     }
     
     
-
     
 };
 
