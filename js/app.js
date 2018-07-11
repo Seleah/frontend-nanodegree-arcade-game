@@ -51,7 +51,7 @@ let Player = class {
         // Set the starting position, bottom row with padding
         this.init_Y = (this.upDown * 5) - 20;
         // Define positional properties, x and y, initialized with the player
-        //in starting position
+        // in starting position
         this.x = this.init_X;
         this.y = this.init_Y;
     }
@@ -100,6 +100,8 @@ let Player = class {
         // Check if player won
         if (player.y == 0) {
             alert('Congratulations! You won!!');
+            player.x = player.init_X;
+            player.y = player.init_Y;
             return;
         }
         
