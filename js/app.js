@@ -50,6 +50,9 @@ let Player = class {
         this.init_X = this.side * 2;
         // Set the starting position, bottom row with padding
         this.init_Y = (this.upDown * 5) - 20;
+        // Define positional properties, x and y
+        this.x = 0;
+        this.y = 0;
     }
     
     handleInput(input) {
