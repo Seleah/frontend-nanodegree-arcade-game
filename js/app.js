@@ -85,7 +85,10 @@ let Player = class {
         // Check if player won
         if (player.y == 0) {
             alert('Congratulations! You won!!');
+            return;
         }
+        
+        return render(x, y);
     }
     
 };
