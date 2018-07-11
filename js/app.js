@@ -68,6 +68,8 @@ let Player = class {
                 // Add top boundary
                 if (this.y >= this.upDown) {
                     this.y -= this.upDown;
+                } else if (this.y < this.upDown) {
+                    this.y = 0;
                 }
                 break;
             case 'right':
