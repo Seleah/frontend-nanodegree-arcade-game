@@ -73,6 +73,21 @@ let Player = class {
         
     }
     
+    update(x, y) {
+        // Check for collision
+        for (let enemy of allEnemies) {
+            // Check x coordinate && y coordinate
+            if ((player.x <= enemy.x + 100 || player.x + 100 >= enemy.x) && (player.y == enemy.y)) {
+                player.x = player.init_X;
+                player.y = player.init_Y;
+            }
+        }
+        // Check if player won
+        if (player.y == 0) {
+            alert('Congratulations! You won!!');
+        }
+    }
+    
 };
 
 
