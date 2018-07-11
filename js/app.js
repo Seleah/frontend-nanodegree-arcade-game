@@ -86,7 +86,7 @@ let Player = class {
                 break;
         }
         
-        this.update(this.x, this.y);
+        // this.update(this.x, this.y);
         
     }
     
@@ -99,15 +99,17 @@ let Player = class {
                 player.y = player.init_Y;
             }
         }
+        
         // Check if player won
         if (player.y == 0) {
-            alert('Congratulations! You won!!');
-            player.x = player.init_X;
-            player.y = player.init_Y;
-            return;
+            player.render(x, y);
+            window.setTimeout(function() {
+                if(confirm("Congratulations, you won!!")) {
+                    player.x = player.init_X;
+                    player.y = player.init_Y;
+                }
+            });
         }
-        
-        this.render(x, y);
     }
     
     render(x, y) {
