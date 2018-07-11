@@ -6,6 +6,16 @@ var Enemy = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+    
+    // The possible locations of the enemy along the y-axis
+    let rows = [65, 148, 231];
+    
+    // Initialize the enemy with a specific y-axis location
+    // from the predefined possible rows
+    this.y = rows[Math.floor(Math.random() * rows.length)];
+    
+    // Set the speed of the enemy
+    this.speed = 20 + Math.floor(Math.random() * 250);
 };
 
 // Update the enemy's position, required method for game
