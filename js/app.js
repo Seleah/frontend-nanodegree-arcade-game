@@ -93,17 +93,14 @@ let Player = class {
                 }
                 break;
         }
-        
-        // this.update(this.x, this.y);
-        
     }
     
     update(x, y) {
         // Check for collision
         for (let enemy of allEnemies) {
             // Check x coordinate && y coordinate
-            if ((player.x <= enemy.x + 100 || player.x + 100 >= enemy.x) 
-            && (player.y == enemy.y)) {
+            if ((player.x <= enemy.x + 100 && player.x + 50 >= enemy.x) 
+            && (player.y + 2 == enemy.y)) {
                 // Reset the player in their starting position
                 player.x = player.init_X;
                 player.y = player.init_Y;
@@ -135,14 +132,13 @@ let Player = class {
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-let numPossEnemies = [2, 3, 4, 5];
+// let numPossEnemies = [2, 3, 4, 5];
 let numEnemies = 4; // numPossEnemies[Math.floor(Math.random) * numPossEnemies.length];
 let allEnemies = [];
 
 for (let i = 0; i < numEnemies; i++) {
     allEnemies.push(new Enemy());
 }
-console.log(allEnemies.length);
 
 // Place the player object in a variable called player
 let player = new Player();
