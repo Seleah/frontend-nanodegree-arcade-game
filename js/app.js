@@ -40,6 +40,23 @@ let Player = class {
         this.init_Y = (this.upDown * 5) - 20;
     }
     
+    handleInput(input) {
+        switch(input) {
+            case 'left':
+                this.x -= this.side;
+                break;
+            case 'up':
+                this.y -= this.upDown;
+                break;
+            case 'right':
+                this.x += this.side;
+                break;
+            case 'down':
+                this.y += this.upDown
+                break;
+        }
+    }
+    
 };
 
 
