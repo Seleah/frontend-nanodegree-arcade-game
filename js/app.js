@@ -35,8 +35,9 @@ let Player = class {
         this.side = 101;
         // Define how far the player can move up or down (the height of the rows)
         this.upDown = 83;
-        // Set the starting position
+        // Set the starting position, middle column
         this.init_X = this.side * 2;
+        // Set the starting position, bottom row with padding
         this.init_Y = (this.upDown * 5) - 20;
     }
     
