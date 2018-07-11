@@ -102,7 +102,7 @@ let Player = class {
     }
     
     render(x, y) {
-        ctx.drawImage(this.sprite, this.x, this.y);
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
     
 };
