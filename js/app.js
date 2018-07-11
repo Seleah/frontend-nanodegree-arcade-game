@@ -31,9 +31,9 @@ let Player = class {
     constructor() {
         // Character img
         this.sprite = 'images/char-boy.png';
-        // Define how far the player can move side to side
+        // Define how far the player can move side to side (the width of the columns)
         this.side = 101;
-        // Define how far the player can move up or down
+        // Define how far the player can move up or down (the height of the rows)
         this.upDown = 83;
         // Set the starting position
         this.init_X = this.side * 2;
@@ -43,19 +43,33 @@ let Player = class {
     handleInput(input) {
         switch(input) {
             case 'left':
-                this.x -= this.side;
+                // Add left boundary
+                if (this.x >= this.side) {
+                    this.x -= this.side;
+                }
                 break;
             case 'up':
-                this.y -= this.upDown;
+                // Add top boundary
+                if (this.y >= this.upDown) {
+                    this.y -= this.upDown;
+                }
                 break;
             case 'right':
-                this.x += this.side;
+                // Add right boundary
+                if (this.x <= this.side * 3) {
+                    this.x += this.side;
+                }
                 break;
             case 'down':
-                this.y += this.upDown
+                // Add bottom boundary
+                if (this.y <= this.upDown * 4) {
+                    this.y += this.upDown;
+                }
                 break;
         }
     }
+    
+    
     
 };
 
