@@ -68,9 +68,10 @@ let Player = class {
                 }
                 break;
         }
+        
+        update(this.x, this.y);
+        
     }
-    
-    
     
 };
 
