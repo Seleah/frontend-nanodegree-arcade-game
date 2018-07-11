@@ -1,4 +1,8 @@
+// The possible locations of the enemy along the y-axis
+let rows = [65, 148, 231];
+
 // Enemies our player must avoid
+
 var Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -7,12 +11,11 @@ var Enemy = function() {
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
     
-    // The possible locations of the enemy along the y-axis
-    let rows = [65, 148, 231];
-    
     // Initialize the enemy with a specific y-axis location
     // from the predefined possible rows
     this.y = rows[Math.floor(Math.random() * rows.length)];
+    // Start the enemy off the edge of the canvas to appear on the left and go to the right
+    this.x = -100;
     
     // Set the speed of the enemy
     this.speed = 20 + Math.floor(Math.random() * 250);
@@ -24,7 +27,12 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x += this.speed * dt;
+    if (this.x < 600) {
+        this.x += this.speed * dt;
+    } else {
+        this.x = -100;
+        this.y = rows[Math.floor(Math.random() * rows.length)];
+    }
 };
 
 // Draw the enemy on the screen, required method for game
@@ -94,7 +102,9 @@ let Player = class {
         // Check for collision
         for (let enemy of allEnemies) {
             // Check x coordinate && y coordinate
-            if ((player.x <= enemy.x + 100 || player.x + 100 >= enemy.x) && (player.y == enemy.y)) {
+            if ((player.x <= enemy.x + 100 || player.x + 100 >= enemy.x) 
+            && (player.y == enemy.y)) {
+                // Reset the player in their starting position
                 player.x = player.init_X;
                 player.y = player.init_Y;
             }
@@ -102,7 +112,11 @@ let Player = class {
         
         // Check if player won
         if (player.y == 0) {
+            // Show the player in the water
             player.render(x, y);
+            // Allow for a delay before the alert window pops up, but don't
+            // reset the player's position back to the starting position until
+            // the user clicks 'ok'
             window.setTimeout(function() {
                 if(confirm("Congratulations, you won!!")) {
                     player.x = player.init_X;
@@ -122,12 +136,13 @@ let Player = class {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 let numPossEnemies = [2, 3, 4, 5];
-let numEnemies = numPossEnemies[Math.floor(Math.random) * numPossEnemies.length];
+let numEnemies = 4; // numPossEnemies[Math.floor(Math.random) * numPossEnemies.length];
 let allEnemies = [];
 
 for (let i = 0; i < numEnemies; i++) {
     allEnemies.push(new Enemy());
 }
+console.log(allEnemies.length);
 
 // Place the player object in a variable called player
 let player = new Player();
