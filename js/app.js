@@ -99,7 +99,7 @@ let Player = class {
         // Check for collision
         for (let enemy of allEnemies) {
             // Check x coordinate && y coordinate
-            if ((player.x <= enemy.x + 100 && player.x + 50 >= enemy.x) 
+            if ((player.x <= enemy.x + 75 && player.x + 50 >= enemy.x) 
             && (player.y + 2 == enemy.y)) {
                 // Reset the player in their starting position
                 player.x = player.init_X;
